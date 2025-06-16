@@ -2,6 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+
+}
+hilt {
+    enableAggregatingTask = false
 }
 
 android {
@@ -56,4 +62,36 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    // Hilt Navigation Compose
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // Navigation Compose
+    implementation(libs.androidx.navigation.compose)
+
+    // Gson
+    implementation(libs.gson)
+
+    //retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    //okhttp
+    implementation(libs.okHttpClient)
+    implementation(libs.logging.interceptor)
+
+    //coil
+    implementation(libs.coil.compose)
+
+    //datastore
+    implementation(libs.androidx.datastore.preferences)
 }
